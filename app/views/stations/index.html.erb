@@ -1,0 +1,16 @@
+<table class="station">
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Information</th>
+  </tr>
+  <% @stations.each do |station| %>
+      <tr>
+        <td><%= link_to(station.name, station_path(id: station.id)) %></td>
+        <td><%= station.address %></td>
+        <td><%= station.phone %></td>
+        <td><%= station.information %></td>
+      </tr>
+  <% end %>
+</table>
