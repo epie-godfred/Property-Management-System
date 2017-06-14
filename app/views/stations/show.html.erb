@@ -1,0 +1,36 @@
+<div class="station-name"><%= @station.name %></div>
+<div class="station-address"><%= @station.address %></div>
+<div class="station-phone"><%= @station.phone %></div>
+<div class="station-information"><%= @station.information %></div>
+<table class="beverage-store">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% @beverage_stores.each do |beverage_store| %>
+      <tr>
+        <td><%= beverage_store.name %></td>
+        <td><%= beverage_store.description %></td>
+      </tr>
+  <% end %>
+</table>
+<table class="train">
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Wagon count</th>
+    <th>Starting station</th>
+    <th>End station</th>
+  </tr>
+  <% @trains.each do |train| %>
+      <tr>
+        <td><%= link_to(train.name, station_path(id: train.id)) %></td>
+        <td><%= train.number %></td>
+        <td><%= train.wagon_count %></td>
+        <% starting_station = train.starting_station %>
+        <td><%= link_to(starting_station.name, station_path(id: starting_station.id)) %></td>
+        <% end_station = train.end_station %>
+        <td><%= link_to(end_station.name, station_path(id: end_station.id)) %></td>
+      </tr>
+  <% end %>
+</table>

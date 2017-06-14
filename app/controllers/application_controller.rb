@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::RoutingError,       with: :render_not_found
   rescue_from ::AbstractController::ActionNotFound, with: :render_not_found
 
-  def render_not_found(e)
+  def render_not_found
     render 'errors/error_404', status: 404
   end
 end
