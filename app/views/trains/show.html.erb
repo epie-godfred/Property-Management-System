@@ -1,0 +1,17 @@
+<div class="train-name"><%= @train.name %></div>
+<div class="train-address"><%= @train.number %></div>
+<div class="train-phone"><%= @train.wagon_count %></div>
+<table class="timetable">
+  <tr>
+    <th>Station</th>
+    <th>Arrival time</th>
+    <th>Departure time</th>
+  </tr>
+  <% @timetables.each do |timetable| %>
+      <tr>
+        <td><%= timetable.station.name %></td>
+        <td><%= timetable.arrival_time %></td>
+        <td><%= timetable.departure_time %></td>
+      </tr>
+  <% end %>
+</table>

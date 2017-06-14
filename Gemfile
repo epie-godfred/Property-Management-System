@@ -48,6 +48,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'launchy'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'shoulda-matchers'
