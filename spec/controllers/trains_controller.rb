@@ -22,4 +22,41 @@ RSpec.describe TrainsController, type: :controller do
       expect(response).to render_template(:index)
     end
   end
+
+  describe 'GET #show' do
+    let(:station) { FactoryGirl.create(:station) }
+    let(:timetable) { FactoryGirl.create(:timetable, station: station, train: train1) }
+
+    context 'train with such id is present in DB' do
+      before(:each) do
+        timetable
+      end
+
+      it 'assigns @train' do
+        get :show, params: { id: train1.id }
+
+        expect(assigns(:train)).to eql(train1)
+      end
+
+      it 'assigns @timetables' do
+        get :show, params: { id: train1.id }
+
+        expect(assigns(:timetables).to_a).to eql([timetable])
+      end
+
+      it 'renders show template' do
+        get :show, params: { id: train1.id }
+
+        expect(response).to render_template(:show)
+      end
+    end
+
+    context 'train with such id is not present in DB' do
+      it 'redirects to the 404 page' do
+        get :show, params: { id: 0 }
+
+        expect(response).to render_template('errors/error_404')
+      end
+    end
+  end
 end

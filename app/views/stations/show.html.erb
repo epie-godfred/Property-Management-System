@@ -24,7 +24,7 @@
   </tr>
   <% @trains.each do |train| %>
       <tr>
-        <td><%= link_to(train.name, station_path(id: train.id)) %></td>
+        <td><%= link_to(train.name, train_path(id: train.id)) %></td>
         <td><%= train.number %></td>
         <td><%= train.wagon_count %></td>
         <%= route train %>
