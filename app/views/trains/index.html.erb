@@ -1,0 +1,17 @@
+<table class="station">
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Wagon count</th>
+    <th>Starting station</th>
+    <th>End station</th>
+  </tr>
+  <% @trains.each do |train| %>
+      <tr>
+        <td><%= link_to(train.name, train_path(id: train.id)) %></td>
+        <td><%= train.number %></td>
+        <td><%= train.wagon_count %></td>
+        <%= route train %>
+      </tr>
+  <% end %>
+</table>

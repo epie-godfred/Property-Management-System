@@ -11,10 +11,10 @@ class Train < ApplicationRecord
   end
 
   def starting_station
-    self.timetables.where(arrival_time: nil).first.station
+    self.timetables.where(arrival_time: nil).first&.station
   end
 
   def end_station
-    self.timetables.where(departure_time: nil).first.station
+    self.timetables.where(departure_time: nil).first&.station
   end
 end
