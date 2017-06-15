@@ -1,7 +1,13 @@
-<div class="train-name"><%= @train.name %></div>
-<div class="train-address"><%= @train.number %></div>
-<div class="train-phone"><%= @train.wagon_count %></div>
+<div class="trains">
+  <%= link_to('Home', root_path, class: 'home') %>
+  <h1><%= @train.name %></h1>
+</div>
+<div class="info">
+  <div class="train address">Train number: <%= @train.number %></div>
+  <div class="train phone">Count of wagon: <%= @train.wagon_count %></div>
+</div>
 <table class="timetable">
+  <caption>Timetable</caption>
   <tr>
     <th>Station</th>
     <th>Arrival time</th>
@@ -9,7 +15,7 @@
   </tr>
   <% @timetables.each do |timetable| %>
       <tr>
-        <td><%= timetable.station.name %></td>
+        <td><%= link_to(timetable.station.name, station_path(id: timetable.station.id)) %></td>
         <td><%= timetable.arrival_time %></td>
         <td><%= timetable.departure_time %></td>
       </tr>
