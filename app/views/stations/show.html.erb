@@ -1,20 +1,10 @@
-<div class="station-name"><%= @station.name %></div>
-<div class="station-address"><%= @station.address %></div>
-<div class="station-phone"><%= @station.phone %></div>
-<div class="station-information"><%= @station.information %></div>
-<table class="beverage-store">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <% @beverage_stores.each do |beverage_store| %>
-      <tr>
-        <td><%= beverage_store.name %></td>
-        <td><%= beverage_store.description %></td>
-      </tr>
-  <% end %>
-</table>
+<div class="stations">
+  <%= link_to('Home', root_path, class: 'home') %>
+  <h1><%= @station.name %></h1>
+</div>
+
 <table class="train">
+  <caption>Trains</caption>
   <tr>
     <th>Name</th>
     <th>Number</th>
@@ -31,3 +21,23 @@
       </tr>
   <% end %>
 </table>
+
+<table class="beverage-store">
+  <caption>Beverage stores</caption>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% @beverage_stores.each do |beverage_store| %>
+      <tr>
+        <td><%= beverage_store.name %></td>
+        <td><%= beverage_store.description %></td>
+      </tr>
+  <% end %>
+</table>
+
+<div class="info">
+  <div class="station address"><%= @station.address %></div>
+  <div class="station phone"><%= @station.phone %></div>
+  <div class="station information"><%= @station.information %></div>
+</div>
